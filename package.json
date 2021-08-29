@@ -1,0 +1,31 @@
+{
+  "name": "first-app",
+  "version": "0.1.0",
+  "description": "Aplicação para cadastro de usuários",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Guilhermeslv/firstapp.git"
+  },
+  "keywords": [
+    "node",
+    "web",
+    "app",
+    "user",
+    "manager"
+  ],
+  "author": "Luis Guilherme da Silva",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Guilhermeslv/firstapp/issues"
+  },
+  "homepage": "https://github.com/Guilhermeslv/firstapp#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1",
+    "express-ejs-layouts": "^2.5.1"
+  }
+}

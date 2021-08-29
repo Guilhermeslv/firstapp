@@ -1,0 +1,35 @@
+<%- contentFor('body') %>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Nome</th>
+        <th scope="col">Email</th>
+        <th scope="col">Endereço</th>
+        <th scope="col">Idade</th>
+        <th scope="col">Altura</th>
+        <th scope="col">Votante</th>
+        <th scope="col">Editar</th>
+        <th scope="col">remover</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% let linkRemove="/cadastro/remove/"; %>
+    <% let linkUpdate="/cadastro/update/"; %>
+    <% for(let index=0;index<users.length;index++){ %>
+      <tr>          
+        <td><%=users[index].name%></td>
+        <td><%=users[index].email%></td>
+        <td><%=users[index].address%></td>
+        <td><%=users[index].age%></td>
+        <td><%=users[index].height%></td>
+        <td><%=users[index].vote%></td>
+        <td>
+            <a href="<%= linkUpdate + "id=" + index %>" class="show"><i class="fas fa-pen">a</i></a>
+        </td>
+        <td>
+            <a href="<%= linkRemove + "id=" + index %>" class="show"><i class="fas fa-trash-alt">a</i></a>
+        </td>
+      </tr>
+    <% } %>
+    </tbody>
+  </table>
