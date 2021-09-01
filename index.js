@@ -2,19 +2,46 @@ const express = require("express");
 const app = express();
 const routes = require("./routes");
 
-const expressLayouts = require("express-ejs-layouts")
+const expressLayouts = require("express-ejs-layouts");
+const { urlencoded } = require("express");
 
-const port=3030;
-const address="localhost";
+const port = 3000;
+const address = "localhost";
+
+const utils = require("./utils");
+
+const faker = require("faker"); 
+
+let toggleBol=true;
+
+
+global.users =[];
+
+for (let cont=0;cont<20;cont++){
+    users.push({
+        name:faker.name.findName(),
+        email:faker.internet.email(),
+        address:faker.address.streetAddress(),
+        age:utils.getRandomByInterval(15,50,true),
+        heigth:utils.getRandomByInterval(1.50,1.70,false).toFixed(2),
+        vote:toggleBol
+    });
+        
+    toggleBol=!toggleBol;
+}
+
+
 
 app.set('view engine','ejs');
 app.use(expressLayouts);
 
-app.use('/', routes);
+app.use(express.urlencoded({extended:false}));
+app.use(express.json());
 
-//Criando um servidor simples com o Node.js e o Express
+app.use('/',routes);
+
 const server = app.listen(port,address,()=>{
- let host = server.address().address;
- let port = server.address().port;
- console.log(`Servidor executando no endereço ${host} e porta ${port}`);
+    let host = server.address().address;
+    let port = server.address().port;
+    console.log(`> Server rodando em http://${host}:${port}`);
 });
